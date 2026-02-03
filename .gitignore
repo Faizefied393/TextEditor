@@ -1,0 +1,6 @@
+kilo
+*.o
+*.out
+*.swp
+.DS_Store
+.vscode/
