@@ -1,71 +1,107 @@
-# TextEditorProject (Kilo)
+# TextEditor (Kilo)
 
-This project is a minimal, terminal-based text editor written in C. It was developed by following the Kilo tutorial by Snaptoken:
-https://viewsourcecode.org/snaptoken/kilo/
-
-The purpose of this project is to gain hands-on experience with low-level systems programming concepts, including raw terminal input, escape sequence handling, screen rendering, file I/O, and basic text editing.
+A minimal, terminal-based text editor written in C.  
+This project is an educational implementation inspired by the *Kilo* text editor guide by Snaptoken, designed to demonstrate low-level text editing concepts such as raw terminal input, screen rendering, file I/O, searching, and syntax highlighting.
 
 ---
 
 ## Table of Contents
-1. Introduction  
-2. Features  
-3. Build & Run  
-4. Usage  
-5. Controls  
-6. Project Structure  
-7. License  
+
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Requirements](#requirements)
+4. [Build Instructions](#build-instructions)
+5. [Usage](#usage)
+6. [Controls](#controls)
+7. [Project Structure](#project-structure)
+8. [Notes](#notes)
+9. [License](#license)
 
 ---
 
-## Introduction
-Kilo is a small educational text editor that runs entirely inside a terminal no graphical interface. This implementation closely follows the Kilo tutorial and demonstrates how a functional text editor can be built from scratch in C using system calls and terminal control.
+## Overview
 
-This project was completed as part of a coursework assignment and emphasizes correctness, functionality, and incremental development using Git.
+This project implements a fully functional terminal text editor using standard C and POSIX system calls.  
+The editor runs directly in the terminal using raw mode input and ANSI escape sequences, without relying on external libraries or graphical interfaces.
+
+The goal of this project is to understand:
+- How terminal applications handle input/output
+- How text editors manage buffers and cursor movement
+- How file reading, writing, and searching work at a low level
 
 ---
 
 ## Features
-- Open and view text files
-- Cursor navigation using arrow keys
-- Insert and delete text
-- Create new lines
+
+- Open and edit text files from the terminal
+- Real-time keyboard input handling (raw mode)
+- Cursor movement with arrow keys
+- Insert and delete characters
+- Create and edit multiple lines
 - Save files to disk
+- Search within files (`Ctrl-F`)
+- Syntax highlighting for C source files
 - Status bar and message bar
-- Search functionality with incremental updates (if implemented)
-- Syntax highlighting for supported file types (if implemented)
+- Graceful exit with unsaved-change warnings
 
 ---
 
-## Installation
+## Requirements
 
-To compile and run the Kilo text editor, you need a C compiler and a terminal environment.
+- Linux or Unix-like environment (Linux, macOS, or WSL)
+- GCC compiler
+- GNU Make
 
+---
 
-### Prerequisites
-- A C compiler (GCC or Clang)
-- A Unix-like environment (Linux, macOS, or WSL)
+## Build Instructions
 
-### Steps
+Clone the repository:
 
-1. Clone the repository to your local machine:
-    ```bash
-    git clone https://github.com/inserturuser/kilo-text-editor.git
-    ```
+```bash
+git clone https://github.com/Faizefied393/TextEditor
+cd TextEditor
 
-2. Navigate to the project directory:
-    ```bash
-    cd urdirectoryname
+make
 
-3. Compile the project using GCC or any C compiler:
-    ```bash
-    gcc -o kilo kilo.c
-    ```
+```
+### Usage
+```
+Run the editor
 
-4. Run the editor:
-    ```bash
-    ./kilo
-    ```
-## Usage
+./kilo
 
-Once the editor is compiled, you can use it to open and edit text files from your terminal.
+Open a file
+
+./kilo filename.txt
+
+```
+### Controls
+
+| Key                 | Action                 |
+| ------------------- | ---------------------- |
+| Arrow Keys          | Move cursor            |
+| Enter               | Insert new line        |
+| Backspace           | Delete character       |
+| Ctrl-S              | Save file              |
+| Ctrl-Q              | Quit editor            |
+| Ctrl-F              | Search within file     |
+| Home / End          | Jump to line start/end |
+| Page Up / Page Down | Scroll                 |
+
+### Project Structure
+
+TextEditor/
+├── kilo.c        # Main editor implementation (single-file)
+├── Makefile      # Build system
+├── .gitignore    # Ignored build artifacts
+├── README.md     # Project documentation
+
+### Notes
+The editor is implemented as a single C source file for clarity and learning purposes.
+
+Terminal control is handled using termios, ioctl, and ANSI escape sequences.
+
+Memory management is handled manually using malloc, realloc, and free.
+
+This project prioritizes learning and correctness over performance or extensibility.
