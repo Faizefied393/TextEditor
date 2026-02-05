@@ -34,12 +34,12 @@ The goal of this project is to understand:
 ## Features
 
 - Open and edit text files from the terminal
-- Real-time keyboard input handling (raw mode)
+- Real-time keyboard input handling raw mode
 - Cursor movement with arrow keys
 - Insert and delete characters
 - Create and edit multiple lines
 - Save files to disk
-- Search within files (`Ctrl-F`)
+- Search within files `Ctrl-F`
 - Syntax highlighting for C source files
 - Status bar and message bar
 - Graceful exit with unsaved-change warnings
@@ -48,7 +48,7 @@ The goal of this project is to understand:
 
 ## Requirements
 
-- Linux or Unix-like environment (Linux, macOS, or WSL)
+- Linux or Unix-like environment Linux, macOS, or WSL
 - GCC compiler
 - GNU Make
 
@@ -92,10 +92,10 @@ Open a file
 ### Project Structure
 
 TextEditor/
-├── kilo.c        # Main editor implementation (single-file)
-├── Makefile      # Build system
-├── .gitignore    # Ignored build artifacts
-├── README.md     # Project documentation
+ kilo.c        # Main editor implementation single-file
+ Makefile      # Build system
+ .gitignore    # Ignored build artifacts
+ README.md     # Project documentation
 
 ### Notes
 The editor is implemented as a single C source file for clarity and learning purposes.
